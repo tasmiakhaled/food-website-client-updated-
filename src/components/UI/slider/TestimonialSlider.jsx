@@ -7,7 +7,7 @@ const TestimonialSlider = () => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch('/reviews')
+    fetch('https://foodwebsite-server.onrender.com/reviews')
       .then(response => response.json())
       .then(data => setComments(data))
       .catch(error => console.error('Error fetching comments:', error));

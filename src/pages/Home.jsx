@@ -55,11 +55,12 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://tasmiakhaled.github.io/json-data-food-website/featuredData.json')
+    fetch('https://tasmiakhaled.github.io/featuredData-json-food-website/featuredData.json')
       .then(res => res.json())
       .then(data => {
-        if (Array.isArray(data)) {
-          setFeaturedData(data);
+        // Access the featuredData property from the fetched object
+        if (data && Array.isArray(data.featuredData)) {
+          setFeaturedData(data.featuredData);
         } else {
           console.error("Expected an array, but got:", data);
           setFeaturedData([]); // Fallback to an empty array if the response isn't an array
