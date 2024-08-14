@@ -55,7 +55,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8000/featuredData')
+    fetch('https://tasmiakhaled.github.io/json-data-food-website/featuredData.json')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
