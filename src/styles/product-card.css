@@ -3,11 +3,15 @@
   text-align: center;
   padding: 30px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto; /* Center the card horizontally */
 }
 
 .product__img {
   margin-bottom: 20px;
-  transition: 0.4s;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+  max-width: 200px; /* Ensures the image doesn't get too large on larger screens */
 }
 
 .product__img:hover {
@@ -17,6 +21,7 @@
 .product__content h5 a {
   color: #212245;
   font-size: 1rem;
+  text-decoration: none;
 }
 
 .product__content h5 {
@@ -36,17 +41,70 @@
   color: #fff;
   border-radius: 5px;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
+.addTOCart__btn:hover {
+  background-color: #c91a1a;
+}
+
+/* Tablet view */
 @media only screen and (max-width: 992px) {
   .product__content h5 a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .product__item {
     padding: 20px;
   }
+  .product__price {
+    font-size: 1.1rem;
+  }
+  .addTOCart__btn {
+    padding: 5px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile view */
+@media only screen and (max-width: 576px) {
+  .product__item {
+    padding: 15px;
+    max-width: 90%; /* Restrict the width of the card */
+  }
+  .product__img {
+    margin-bottom: 15px;
+    max-width: 150px; /* Smaller max width for images on mobile devices */
+  }
+  .product__content h5 a {
+    font-size: 0.8rem;
+  }
+  .product__price {
+    font-size: 1rem;
+  }
   .addTOCart__btn {
     padding: 5px 15px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Very small mobile devices (less than 360px wide) */
+@media only screen and (max-width: 360px) {
+  .product__item {
+    padding: 10px;
+    max-width: 95%; /* Ensure the card fits within very small screens */
+  }
+  .product__img {
+    margin-bottom: 10px;
+    max-width: 120px;
+  }
+  .product__content h5 a {
+    font-size: 0.7rem;
+  }
+  .product__price {
+    font-size: 0.9rem;
+  }
+  .addTOCart__btn {
+    padding: 3px 10px;
     font-size: 0.7rem;
   }
 }

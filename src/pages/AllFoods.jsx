@@ -21,12 +21,10 @@ const AllFoods = () => {
   const foodPerPage = 10;
   const pagesVisited = pageNumber * foodPerPage;
 
-  // Filter products based on search term
   const filteredProducts = allProducts.filter(product =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Sort products based on the selected option
   const sortedProducts = [...filteredProducts];
   if (selectedSortOption === 'ascending') {
     sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
@@ -41,7 +39,7 @@ const AllFoods = () => {
   const displayFoods = sortedProducts
     .slice(pagesVisited, pagesVisited + foodPerPage)
     .map(item => (
-      <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
+      <Col lg="3" md="4" sm="6" xs="12" key={item.id} className="mb-4">  {/* Changed xs="6" to xs="12" */}
         <ProductCard item={item} />
       </Col>
     ));
@@ -54,7 +52,7 @@ const AllFoods = () => {
 
   const handleSortChange = (e) => {
     setSelectedSortOption(e.target.value);
-    setPageNumber(0); // Reset the page number when changing the sorting option
+    setPageNumber(0);
   };
 
   return (
@@ -63,12 +61,12 @@ const AllFoods = () => {
 
       <section>
         <Container>
-          <Row>
-            <Col lg="6" md="6" sm="6" xs="12">
-              <div className="search__widget d-flex align-items-center justify-content-between ">
+          <Row className="mb-4">
+            <Col lg="6" md="6" sm="12" className="mb-3 mb-md-0">
+              <div className="search__widget d-flex align-items-center">
                 <input
                   type="text"
-                  placeholder="I'm looking for...."
+                  placeholder=" I'm looking for...."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -78,7 +76,7 @@ const AllFoods = () => {
               </div>
             </Col>
 
-            <Col lg="6" md="6" sm="6" xs="12" className="mb-5">
+            <Col lg="6" md="6" sm="12" xs="12" className="mb-5">
               <div className="sorting__widget text-end">
                 <select className="w-50" value={selectedSortOption} onChange={handleSortChange}>
                   <option value="default">Default</option>
@@ -89,8 +87,10 @@ const AllFoods = () => {
                 </select>
               </div>
             </Col>
+          </Row>
+          <Row>
             {displayFoods}
-            <div>
+            <div className="pagination__container">
               <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}

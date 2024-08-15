@@ -1,8 +1,37 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  list-style: none;
+  margin-top: 30px;
+  box-sizing: border-box;
+  padding: 0 15px; /* Ensure padding does not cause overflow */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
 .feature__subtitle {
   color: #df2020;
 }
 
-.hero__img{
+.hero__img {
   z-index: 1;
 }
 
@@ -22,7 +51,7 @@
   background: #df2020;
   text-align: center;
   margin-top: 30px;
-  padding: 20px 0px;
+  padding: 20px 0;
   border-radius: 8px;
 }
 
@@ -85,6 +114,7 @@
   line-height: 30px;
 }
 
+/* Responsive styles */
 @media only screen and (max-width: 768px) {
   .hero__content h5 {
     font-size: 1rem;
@@ -153,6 +183,7 @@
     font-size: 0.8rem;
   }
 }
+
 @media only screen and (max-width: 576px) {
   .hero__content {
     text-align: center;

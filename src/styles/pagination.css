@@ -1,17 +1,18 @@
 .paginationBttns {
-  width: 80%;
-  height: 40px;
+  width: 100%; /* Adjust to full width on mobile */
+  height: auto; /* Let height adjust based on content */
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
   column-gap: 0.5rem;
   list-style: none;
   margin-top: 30px;
 }
 
 .paginationBttns a {
-  padding: 5px 13px;
+  padding: 8px 15px; /* Slightly larger padding for better touch targets */
   background: #212245;
   color: #fff !important;
   border-radius: 5px;
@@ -20,8 +21,34 @@
   justify-content: center;
   cursor: pointer;
   margin: 5px;
+  font-size: 0.9rem; /* Slightly smaller text for better fit on mobile */
+  transition: background 0.3s ease-in-out; /* Smooth transition for hover effect */
 }
 
 .paginationBttns a:hover {
   background: #df2020;
+}
+
+/* Tablet view */
+@media only screen and (max-width: 768px) {
+  .paginationBttns {
+    column-gap: 0.3rem; /* Reduce gap between buttons */
+  }
+
+  .paginationBttns a {
+    padding: 6px 12px; /* Reduce padding for smaller screens */
+    font-size: 0.85rem; /* Adjust font size */
+  }
+}
+
+/* Mobile view */
+@media only screen and (max-width: 576px) {
+  .paginationBttns {
+    column-gap: 0.2rem; /* Further reduce gap between buttons */
+  }
+
+  .paginationBttns a {
+    padding: 5px 10px; /* Smaller padding for mobile devices */
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
 }

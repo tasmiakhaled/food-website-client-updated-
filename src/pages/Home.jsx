@@ -73,7 +73,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Helmet title="Home">
+    <Helmet title="Home" className="w-100">
       <section>
         <Container>
           <Row>

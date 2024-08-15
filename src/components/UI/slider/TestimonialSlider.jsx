@@ -30,7 +30,11 @@ const TestimonialSlider = () => {
         <div key={index}>
           <p className="review__text">{comment.review}</p>
           <div className="slider__content d-flex align-items-center gap-3">
-            <img src={comment.image} alt="avatar" className="rounded" />
+          <img
+              src={`https://foodwebsite-server.onrender.com/${comment.image.replace(/\\/g, '/')}`}
+              alt="avatar"
+              className="rounded"
+            />
             <h6>{comment.name}</h6>
           </div>
         </div>

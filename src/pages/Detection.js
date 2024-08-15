@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as tmImage from '@teachablemachine/image';
+import { Button, InputGroup, Form } from 'react-bootstrap';
 
 function Detection() {
     const modelRef = useRef(null);
@@ -84,26 +85,25 @@ function Detection() {
         <div className='text-center'>
             <h3>Click to Detect Food</h3>
             <div className="d-flex justify-content-center">
-                <div className="input-group mb-3 w-25 d-flex justify-content-center">
-                    <label className="input-group-text" htmlFor="inputGroupFile02">
+                <InputGroup className="mb-3 d-flex justify-content-center w-100 flex-wrap">
+                    <Form.Label className="input-group-text me-2" htmlFor="inputGroupFile02">
                         Upload
-                    </label>
-                    <input
+                    </Form.Label>
+                    <Form.Control
                         type="file"
                         accept="image/*"
                         onChange={loadImage}
                         ref={inputRef}
-                        style={{ display: 'none' }} // Hide the input element
                         id="inputGroupFile02"
+                        style={{ display: 'none' }} // Hide the input element
                     />
-                    <button
-                        type="button"
-                        className="btn btn-danger"
+                    <Button
+                        variant="danger"
                         onClick={() => inputRef.current.click()} // Trigger the input click when button is clicked
                     >
                         Choose File
-                    </button>
-                </div>
+                    </Button>
+                </InputGroup>
             </div>
             <div className="row justify-content-center">
                 <div className="col-4">
@@ -113,16 +113,26 @@ function Detection() {
                         </div>
                     )}
                     {showDetectButton && (
-                        <button type="button" className="btn btn-danger" onClick={detect} style={{ marginBottom: '20px' }}>
+                        <Button
+                            variant="danger"
+                            onClick={detect}
+                            style={{ marginBottom: '20px' }}
+                        >
                             Detect
-                        </button>
+                        </Button>
                     )}
                 </div>
                 <div className="col-4">
                     <div
                         id="label-container"
                         ref={labelContainerRef}
-                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100%',
+                        }}
                     ></div>
                 </div>
             </div>
