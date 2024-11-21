@@ -153,13 +153,14 @@ const Home = () => {
                   <img
                     src={item.img}
                     alt="feature-img"
-                    className="w-25 mb-3"
+                    className="w-25 mb-3 mx-auto"
                   />
-                  <h5 className=" fw-bold mb-3">{item.title}</h5>
+                  <h5 className="fw-bold mb-3">{item.title}</h5>
                   <p>{item.desc}</p>
                 </div>
               </Col>
             ))}
+
           </Row>
         </Container>
       </section>
@@ -245,7 +246,7 @@ const Home = () => {
                   What our <span>customers</span> are saying
                 </h2>
                 <p className="testimonial__desc">
-                As customer service personnel, they occasionally have the power to handle complaints, grievances, and unusual demands. They reply to these inquiries since retaining clients is crucial for a business to thrive.
+                  As customer service personnel, they occasionally have the power to handle complaints, grievances, and unusual demands. They reply to these inquiries since retaining clients is crucial for a business to thrive.
                 </p>
 
                 <TestimonialSlider />
